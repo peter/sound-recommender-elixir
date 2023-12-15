@@ -1,5 +1,15 @@
 defmodule SoundRecommenderWeb.Router do
   use SoundRecommenderWeb, :router
+  use Plug.ErrorHandler  #<-- Add this line
+
+  # and implement the callback handle_errors/2
+  defp handle_errors(conn, %{reason: %Phoenix.Router.NoRouteError{message: message}}) do
+    conn |> json(%{error: message}) |> halt()
+  end
+
+  defp handle_errors(conn, _) do
+    conn |> json(%{error: "unknown"}) |> halt()
+  end
 
   pipeline :api do
     plug :accepts, ["json"]
@@ -7,6 +17,7 @@ defmodule SoundRecommenderWeb.Router do
 
   scope "/api", SoundRecommenderWeb do
     pipe_through :api
+    get "/", DefaultController, :index
   end
 
   # Enable Swoosh mailbox preview in development
