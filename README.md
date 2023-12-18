@@ -24,3 +24,4 @@ schema_migrations
 ## Resources
 
 * [2. Using Phoenix Framework to Create an Elixir REST API Project](https://www.youtube.com/watch?v=s3WNCjN4Pes)
+* [3. Using Phoenix Framework to Generate JSON Resources for Elixir REST API Project](https://www.youtube.com/watch?v=DRsKmU3Sytw&list=PL2Rv8vpZJz4yEd_cTbBV7X2ZK6J4KCg3w&index=38)
